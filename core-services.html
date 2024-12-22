@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Services - Zenvy Visuals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1E0B34 0%, #4B2C70 100%);
+            color: white;
+        }
+
+        .service-section {
+            padding: 4rem 2rem;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .service-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-workflow {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+
+        .workflow-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .workflow-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(75, 44, 112, 0.8);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-arrow {
+            color: #FF4B26;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+        }
+
+        .step-description {
+            max-width: 200px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .folder-preview {
+            width: 200px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .folder-preview:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (similar to main page) -->
+    <nav class="fixed top-0 left-0 right-0 bg-purple-dark/80 backdrop-blur-sm z-50 border-b border-white/10">
+        <!-- ... (copy navigation from index.html) ... -->
+    </nav>
+
+    <main class="pt-20">
+        <!-- Reels Production Section -->
+        <section id="reels-production" class="service-section">
+            <div class="service-header">
+                <h1 class="text-4xl font-bold mb-4">REELS PRODUCTION</h1>
+            </div>
+            <div class="service-content">
+                <div class="service-workflow">
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-lightbulb fa-2x"></i>
+                            </div>
+                            <h3>On-Trend Content</h3>
+                            <p class="step-description">We stay up-to-date with the latest trends and adapt them to fit your brand's unique voice.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-bolt fa-2x"></i>
+                            </div>
+                            <h3>Instant Engagement</h3>
+                            <p class="step-description">Our team knows what works for your audience, creating reels that capture attention within seconds.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-star fa-2x"></i>
+                            </div>
+                            <h3>High-Quality Execution</h3>
+                            <p class="step-description">Seamlessly produced content with sharp visuals and compelling storytelling.</p>
+                        </div>
+                    </div>
+                    <div class="folder-preview">
+                        <p>Click here to open</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branding Posts Section -->
+        <section id="branding-posts" class="service-section">
+            <div class="service-header">
+                <h1 class="text-4xl font-bold mb-4">BRANDING POSTS</h1>
+            </div>
+            <div class="service-content">
+                <div class="service-workflow">
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-palette fa-2x"></i>
+                            </div>
+                            <h3>Visual Identity</h3>
+                            <p class="step-description">Creating consistent and visually appealing posts to strengthen your brand's identity.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-comments fa-2x"></i>
+                            </div>
+                            <h3>Engaging Content</h3>
+                            <p class="step-description">Posts designed to communicate your message effectively while enhancing audience interaction.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-bullseye fa-2x"></i>
+                            </div>
+                            <h3>Creativity with Purpose</h3>
+                            <p class="step-description">Each post is tailored to reflect your brand's personality and goals.</p>
+                        </div>
+                    </div>
+                    <div class="folder-preview">
+                        <p>Click here to open</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Consulting Section -->
+        <section id="content-consulting" class="service-section">
+            <div class="service-header">
+                <h1 class="text-4xl font-bold mb-4">CONTENT CONSULTING</h1>
+            </div>
+            <div class="service-content">
+                <div class="service-workflow">
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-line fa-2x"></i>
+                            </div>
+                            <h3>Strategic Planning</h3>
+                            <p class="step-description">Develop a cohesive content strategy that aligns with your brand's goals.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-users fa-2x"></i>
+                            </div>
+                            <h3>Audience Insights</h3>
+                            <p class="step-description">Leverage data to understand what your audience wants and how to deliver it.</p>
+                        </div>
+                        <div class="step-arrow">»</div>
+                        <div class="workflow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-flag fa-2x"></i>
+                            </div>
+                            <h3>Creative Guidance</h3>
+                            <p class="step-description">Expert advice on optimizing your content for maximum reach and engagement.</p>
+                        </div>
+                    </div>
+                    <div class="folder-preview">
+                        <p>Click here to open</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Add any necessary JavaScript for interactions
+        document.querySelectorAll('.folder-preview').forEach(folder => {
+            folder.addEventListener('click', () => {
+                // Add functionality to open detailed view
+                alert('Detailed view coming soon!');
+            });
+        });
+    </script>
+</body>
+</html> 

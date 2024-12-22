@@ -1,0 +1,27 @@
+# Create project structure
+mkdir -p Zenvy_Tech/public/assets/images
+mkdir -p Zenvy_Tech/public/assets/videos
+mkdir -p Zenvy_Tech/public/css
+mkdir -p Zenvy_Tech/public/js
+mkdir -p Zenvy_Tech/public/assets/background
+
+# Copy the GIF to the project's assets folder
+cp "/Users/ashutoshsarkar/Desktop/trial/Zenvy_Tech/Zenvy_Visuals/Background_Images/1.gif" public/assets/background/hero-bg.gif
+
+# Navigate to project directory
+cd Zenvy_Tech
+
+# Initialize npm project
+npm init -y
+
+# Install dependencies
+npm install gsap swiper
+npm install --save-dev live-server
+
+# Move files to their proper locations
+mv index.html public/
+mv styles.css public/css/
+mv main.js public/js/
+
+# Start the development server
+npm run dev 

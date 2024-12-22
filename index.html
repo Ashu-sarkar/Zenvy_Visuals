@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esports Platform</title>
+    <title>Zenvy Visuals</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -11,82 +11,735 @@
             theme: {
                 extend: {
                     colors: {
-                        'dark-bg': '#0f1012',
-                        'card-bg': '#1f2024',
-                        'hover-bg': '#2f3136',
-                        'accent': '#ff4655'
+                        'purple-dark': '#1E0B34',
+                        'purple-light': '#4B2C70',
+                        'accent-orange': '#FF4B26',
+                        'white': '#FFFFFF'
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav-link.active {
+            color: white;
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ff4655;
+        }
+
+        /* Add styles for hero section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 16, 18, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        /* Carousel specific styles */
+        .hero-carousel {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .hero-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 16, 18, 0.7);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Custom Swiper Navigation */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 50%;
+        }
+
+        .swiper-pagination-bullet {
+            background: white !important;
+        }
+
+        /* Update theme-specific styles */
+        body {
+            background: linear-gradient(135deg, #1E0B34 0%, #4B2C70 100%);
+        }
+
+        .hero-section {
+            position: relative;
+            background: radial-gradient(circle at top right, #4B2C70 0%, #1E0B34 100%);
+        }
+
+        .slide-overlay {
+            background: rgba(30, 11, 52, 0.7);
+        }
+
+        /* Diagonal shapes styling */
+        .diagonal-shape {
+            position: absolute;
+            background: rgba(255, 75, 38, 0.1);
+            transform: skew(-45deg);
+        }
+
+        /* Year styling */
+        .year-text {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5em;
+            opacity: 0.8;
+        }
+
+        /* Vision text styling */
+        .vision-text {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.25em;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        /* Logo container */
+        .logo-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Update swiper navigation */
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: rgba(255, 75, 38, 0.2);
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #FF4B26 !important;
+        }
+
+        /* Core Services Section */
+        .core-services {
+            background: linear-gradient(135deg, #1E0B34 0%, #4B2C70 100%);
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .core-services h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            width: calc(25% - 2rem);
+            margin: 1rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-card .card-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Mobile-first responsive adjustments */
+        @media (max-width: 768px) {
+            /* Hero Section */
+            .hero-section {
+                min-height: calc(100vh - 64px);
+            }
+
+            .slide-content h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .slide-content p {
+                font-size: 1rem !important;
+            }
+
+            /* Vision Text */
+            .vision-text {
+                display: none; /* Hide on mobile */
+            }
+
+            /* Year Text */
+            .year-text {
+                font-size: 0.8rem;
+            }
+
+            /* Why Choose Section */
+            .grid.gap-8 {
+                gap: 2rem;
+            }
+
+            /* Core Services */
+            .services-container {
+                flex-direction: column;
+            }
+
+            .service-card {
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            /* Connect Section */
+            .grid.grid-cols-1.md\:grid-cols-2 {
+                gap: 2rem;
+            }
+        }
+
+        /* Swiper navigation adjustments for mobile */
+        @media (max-width: 640px) {
+            .swiper-button-next,
+            .swiper-button-prev {
+                padding: 1rem;
+                transform: scale(0.8);
+            }
+
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* Adjust spacing for mobile navigation */
+        @media (max-width: 768px) {
+            #mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(30, 11, 52, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem 0;
+            }
+
+            #mobile-menu a,
+            #mobile-menu button {
+                padding: 0.75rem 1.5rem;
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        /* Why Choose Section mobile adjustments */
+        @media (max-width: 768px) {
+            .space-y-12 {
+                padding: 2rem 1rem;
+            }
+
+            .text-4xl.md\:text-5xl {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+
+            .text-lg {
+                font-size: 1rem;
+            }
+        }
+
+        /* Contact form mobile adjustments */
+        @media (max-width: 768px) {
+            .bg-white\/10.p-8 {
+                padding: 1.5rem;
+            }
+
+            .space-y-6 > div {
+                margin-bottom: 1rem;
+            }
+
+            .contact-info {
+                font-size: 0.9rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
-<body class="bg-dark-bg text-white font-['Inter']">
-    <div class="grid grid-cols-[60px_1fr] grid-rows-[60px_1fr] min-h-screen">
-        <!-- Top Navigation -->
-        <nav class="col-span-2 bg-card-bg flex justify-between items-center px-5">
-            <div class="font-bold">ES</div>
-            <div class="flex items-center gap-4">
-                <span>My Games:</span>
-                <img src="lol-icon.png" alt="LOL" class="w-6 h-6">
-                <img src="hots-icon.png" alt="HOTS" class="w-6 h-6">
-                <img src="starcraft-icon.png" alt="Starcraft" class="w-6 h-6">
-                <button class="bg-accent px-4 py-1 rounded hover:bg-accent/90 transition">ADD</button>
+<body class="text-white">
+    <!-- Navigation Bar - Fixed at top -->
+    <nav class="fixed top-0 left-0 right-0 bg-purple-dark/80 backdrop-blur-sm z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="/" class="text-xl font-bold text-white">
+                    <img src="zenvy-logo.png" alt="Zenvy Visuals" class="h-8">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#portfolio" class="nav-link text-white/80 hover:text-white transition-colors duration-200">Portfolio</a>
+                    <a href="core-services.html" class="nav-link text-white/80 hover:text-white transition-colors duration-200">Core Services</a>
+                    <a href="#team" class="nav-link text-white/80 hover:text-white transition-colors duration-200">Team</a>
+                    <a href="#connect" class="nav-link text-white/80 hover:text-white transition-colors duration-200">Connect With Us</a>
+                    <button class="bg-accent-orange px-6 py-2 rounded-md text-white hover:bg-accent-orange/90 transition-colors duration-200">
+                        Sign In
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
-        </nav>
+        </div>
 
-        <!-- Sidebar -->
-        <nav class="row-start-2 bg-card-bg py-5">
-            <div class="flex flex-col items-center gap-5">
-                <div class="text-accent cursor-pointer"><i class="fas fa-trophy"></i></div>
-                <div class="text-gray-400 hover:text-white cursor-pointer"><i class="fas fa-users"></i></div>
-                <div class="text-gray-400 hover:text-white cursor-pointer"><i class="fas fa-cog"></i></div>
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#portfolio" class="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200">Portfolio</a>
+                <a href="core-services.html" class="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200">Core Services</a>
+                <a href="#team" class="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200">Team</a>
+                <a href="#connect" class="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-200">Connect With Us</a>
+                <button class="w-full text-left px-3 py-2 bg-accent text-white rounded-md hover:bg-accent/90 transition-colors duration-200">
+                    Sign In
+                </button>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Main Content -->
-        <main class="col-start-2 p-5 overflow-y-auto">
-            <!-- Trending Event Section -->
-            <section class="mb-10">
-                <h6 class="text-sm tracking-wider uppercase mb-2">TRENDING EVENT</h6>
-                <h1 class="text-3xl font-bold mb-6">World Championship 2018</h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <!-- Match cards will go here -->
-                </div>
-            </section>
+    <!-- Main Content - Add padding top to account for fixed navbar -->
+    <main class="pt-16">
+        <!-- Hero Section with Carousel -->
+        <section class="hero-section min-h-screen relative overflow-hidden">
+            <!-- Diagonal Shapes -->
+            <div class="diagonal-shape w-1/2 h-96 top-0 right-0"></div>
+            <div class="diagonal-shape w-1/3 h-64 bottom-0 left-0"></div>
 
-            <!-- Championships News -->
-            <section class="mb-10">
-                <h2 class="text-xl font-bold mb-6">CHAMPIONSHIPS NEWS</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    <!-- News cards will go here -->
-                </div>
-            </section>
+            <!-- Year -->
+            <div class="absolute top-8 left-8 year-text text-white/80">
+                2024
+            </div>
 
-            <!-- Teams News -->
-            <section class="mb-10">
-                <h2 class="text-xl font-bold mb-6">TEAMS NEWS</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                    <!-- Team news cards will go here -->
-                </div>
-            </section>
+            <!-- Vision Text -->
+            <div class="absolute top-8 right-8 vision-text text-right text-white/80">
+                <div>WHERE</div>
+                <div>VISION</div>
+                <div>MEETS</div>
+                <div>ARTISTRY</div>
+            </div>
 
-            <!-- Recommended Championships -->
-            <section class="mb-10">
-                <h2 class="text-xl font-bold mb-6">RECOMMENDED CHAMPIONSHIPS</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5">
-                    <!-- Championship cards will go here -->
-                </div>
-            </section>
+            <!-- Center Logo -->
+            <!-- <div class="logo-container absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <img src="zenvy-logo.png" alt="Zenvy Visuals" class="w-64 md:w-96">
+            </div> -->
 
-            <!-- Recommended Teams -->
-            <section class="mb-10">
-                <h2 class="text-xl font-bold mb-6">RECOMMENDED TEAMS</h2>
-                <div class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-5">
-                    <!-- Team cards will go here -->
+            <div class="swiper hero-carousel">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 - Creative Excellence -->
+                    <div class="swiper-slide hero-slide">
+                        <div class="slide-background">
+                            <img src="Zenvy_Visuals/Background_Images/1.gif" alt="Creative Excellence" class="w-full h-full object-cover">
+                        </div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                                <h6 class="text-accent text-sm uppercase tracking-wider mb-4">Creative Excellence</h6>
+                                <h1 class="text-5xl md:text-6xl font-bold mb-6">Visual Storytelling Redefined</h1>
+                                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                                    Transform your content with our expert editing and media production services
+                                </p>
+                                <button class="bg-accent px-8 py-3 rounded-md text-white text-lg hover:bg-accent/90 transition-colors duration-200">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 - Professional Editing -->
+                    <div class="swiper-slide hero-slide">
+                        <div class="slide-background">
+                            <img src="Zenvy_Visuals/Background_Images/1.gif" alt="Professional Editing" class="w-full h-full object-cover">
+                        </div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                                <h6 class="text-accent text-sm uppercase tracking-wider mb-4">Professional Editing</h6>
+                                <h1 class="text-5xl md:text-6xl font-bold mb-6">Elevate Your Content</h1>
+                                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                                    Expert post-production services to make your vision come to life
+                                </p>
+                                <button class="bg-accent px-8 py-3 rounded-md text-white text-lg hover:bg-accent/90 transition-colors duration-200">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more slides as needed -->
+
                 </div>
-            </section>
-        </main>
-    </div>
+                <!-- Navigation Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Why Choose Zenvy Visuals Section -->
+        <section class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-dark to-purple-light">
+            <div class="max-w-7xl mx-auto px-4 md:px-0">
+                <div class="space-y-12">
+                    <div class="text-center space-y-4">
+                        <h2 class="text-3xl md:text-5xl font-bold leading-tight">
+                            WHY CHOOSE ZENVY VISUALS<br>
+                            FOR SOCIAL MEDIA?
+                        </h2>
+                    </div>
+                    
+                    <div class="grid gap-6 md:gap-12">
+                        <!-- Trend-Driven Expertise -->
+                        <div class="flex items-start space-x-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <span class="text-accent-orange">Trend-Driven Expertise:</span>
+                                </h3>
+                                <p class="text-lg text-white/90">
+                                    We know what's trending and how to make it work for your brand.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Audience-Centric Approach -->
+                        <div class="flex items-start space-x-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <span class="text-accent-orange">Audience-Centric Approach:</span>
+                                </h3>
+                                <p class="text-lg text-white/90">
+                                    Every piece of content is created with your target audience in mind.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Versatility -->
+                        <div class="flex items-start space-x-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <span class="text-accent-orange">Versatility:</span>
+                                </h3>
+                                <p class="text-lg text-white/90">
+                                    From reels to graphics, we provide a full suite of social media solutions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- End-to-End Support -->
+                        <div class="flex items-start space-x-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">
+                                    <span class="text-accent-orange">End-to-End Support:</span>
+                                </h3>
+                                <p class="text-lg text-white/90">
+                                    From ideation to execution, we handle it all, so you can focus on your business.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center pt-8">
+                        <h2 class="text-4xl md:text-5xl font-bold">
+                            Let's Elevate Your Social Media Game
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Portfolio</h2>
+            <!-- Portfolio content here -->
+        </section>
+
+        <!-- Core Services Section -->
+        <section class="core-services">
+            <h1>CORE SERVICES</h1>
+            <div class="services-container flex flex-col md:flex-row">
+                <div class="service-card">
+                    <div class="card-image pre-post"></div>
+                    <h3>PRE/POST<br>PRODUCTION</h3>
+                    <p class="text-sm md:text-base">From brainstorming the concept to full-scale production, we're with you every step of the way. We focus on creating a visual experience that complements the soul of the music.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="card-image branding"></div>
+                    <h3>BRANDING<br>AND IDENTITY</h3>
+                    <p>We understand the importance of telling your brand's story. Whether it's a product launch or a corporate documentary, we make sure your story is told both authentically and effectively.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="card-image photography"></div>
+                    <h3>PHOTOGRAPHY &<br>VIDEOGRAPHY</h3>
+                    <p>In today's fast-paced digital world, people need to capture attention quickly. We specialize in creating short-form content like reels and videos that resonate with your audience, helping you stand out in the crowded social media landscape.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="card-image weddings"></div>
+                    <h3>WEDDINGS<br>& EVENTS</h3>
+                    <p>We know the visual storytelling of your project. From pre-planning and art direction to creating a mood that aligns with your vision, we guide the creative process to ensure every detail is perfect.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Team</h2>
+            <!-- Team content here -->
+        </section>
+
+        <!-- Connect With Us Section -->
+        <section id="connect" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 md:px-0">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
+                    CONNECT WITH US
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <!-- Contact Form -->
+                    <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+                        <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                <input type="text" id="name" name="name" 
+                                    class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-orange">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" 
+                                    class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-orange">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" 
+                                    class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-orange"></textarea>
+                            </div>
+                            <button type="submit" 
+                                class="w-full bg-accent-orange py-3 px-6 rounded-md text-white font-medium hover:bg-accent-orange/90 transition-colors duration-200">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+                            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-map-marker-alt text-accent-orange text-xl"></i>
+                                    <p>123 Creative Street, Digital City, DC 12345</p>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-phone text-accent-orange text-xl"></i>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-accent-orange text-xl"></i>
+                                    <p>hello@zenvyvisuals.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media Links -->
+                        <div class="bg-white/10 p-8 rounded-lg backdrop-blur-sm">
+                            <h3 class="text-2xl font-semibold mb-6">Follow Us</h3>
+                            <div class="flex space-x-6">
+                                <a href="#" class="text-white hover:text-accent-orange transition-colors duration-200">
+                                    <i class="fab fa-instagram text-3xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-accent-orange transition-colors duration-200">
+                                    <i class="fab fa-twitter text-3xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-accent-orange transition-colors duration-200">
+                                    <i class="fab fa-facebook text-3xl"></i>
+                                </a>
+                                <a href="#" class="text-white hover:text-accent-orange transition-colors duration-200">
+                                    <i class="fab fa-linkedin text-3xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuButton = event.target.closest('button');
+            
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Intersection Observer for section highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeId = entry.target.id;
+                    const activeLink = document.querySelector(`[href="#${activeId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '-80px 0px 0px 0px'
+        });
+
+        sections.forEach(section => {
+            navObserver.observe(section);
+        });
+
+        // Initialize Swiper
+        const heroSwiper = new Swiper('.hero-carousel', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+            effect: 'fade', // Smooth fade transition between slides
+            autoplay: {
+                delay: 10000, // 10 seconds
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+            // Pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Smooth transition
+            speed: 1000,
+        });
+    </script>
 </body>
 </html> 
