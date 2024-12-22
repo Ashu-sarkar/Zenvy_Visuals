@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esports Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0f1012',
+                        'card-bg': '#1f2024',
+                        'hover-bg': '#2f3136',
+                        'accent': '#ff4655'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white font-['Inter']">
+    <div class="grid grid-cols-[60px_1fr] grid-rows-[60px_1fr] min-h-screen">
+        <!-- Top Navigation -->
+        <nav class="col-span-2 bg-card-bg flex justify-between items-center px-5">
+            <div class="font-bold">ES</div>
+            <div class="flex items-center gap-4">
+                <span>My Games:</span>
+                <img src="lol-icon.png" alt="LOL" class="w-6 h-6">
+                <img src="hots-icon.png" alt="HOTS" class="w-6 h-6">
+                <img src="starcraft-icon.png" alt="Starcraft" class="w-6 h-6">
+                <button class="bg-accent px-4 py-1 rounded hover:bg-accent/90 transition">ADD</button>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <nav class="row-start-2 bg-card-bg py-5">
+            <div class="flex flex-col items-center gap-5">
+                <div class="text-accent cursor-pointer"><i class="fas fa-trophy"></i></div>
+                <div class="text-gray-400 hover:text-white cursor-pointer"><i class="fas fa-users"></i></div>
+                <div class="text-gray-400 hover:text-white cursor-pointer"><i class="fas fa-cog"></i></div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-start-2 p-5 overflow-y-auto">
+            <!-- Trending Event Section -->
+            <section class="mb-10">
+                <h6 class="text-sm tracking-wider uppercase mb-2">TRENDING EVENT</h6>
+                <h1 class="text-3xl font-bold mb-6">World Championship 2018</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Match cards will go here -->
+                </div>
+            </section>
+
+            <!-- Championships News -->
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-6">CHAMPIONSHIPS NEWS</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <!-- News cards will go here -->
+                </div>
+            </section>
+
+            <!-- Teams News -->
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-6">TEAMS NEWS</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <!-- Team news cards will go here -->
+                </div>
+            </section>
+
+            <!-- Recommended Championships -->
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-6">RECOMMENDED CHAMPIONSHIPS</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-5">
+                    <!-- Championship cards will go here -->
+                </div>
+            </section>
+
+            <!-- Recommended Teams -->
+            <section class="mb-10">
+                <h2 class="text-xl font-bold mb-6">RECOMMENDED TEAMS</h2>
+                <div class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-5">
+                    <!-- Team cards will go here -->
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 
